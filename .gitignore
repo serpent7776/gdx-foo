@@ -1,3 +1,4 @@
 *.sw?
 .gradle
+Session.vim
 build/

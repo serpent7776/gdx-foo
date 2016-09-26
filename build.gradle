@@ -11,6 +11,7 @@ allprojects {
     version = '1.0'
     ext {
         gdxVersion = '1.9.4'
+        testNGVersion = '6.9.10'
     }
     tasks.withType(JavaCompile) {
         options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
@@ -25,9 +26,14 @@ allprojects {
 apply plugin: "java"
 apply plugin: "maven"
 
+test {
+    useTestNG()
+}
+
 sourceCompatibility = JavaVersion.VERSION_1_6
 targetCompatibility = JavaVersion.VERSION_1_6
 
 dependencies {
     compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+    testCompile "org.testng:testng:$testNGVersion"
 }

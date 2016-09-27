@@ -45,4 +45,15 @@ public class RangesTest {
 		}
 	}
 
+	@Test
+	public void returnedArrayHasNoValuesOutOfRange() {
+		final int maxLength = 250;
+		for (int length = 1; length <= maxLength; length++) {
+			final int[] array = Ranges.generatePermutedRange(length);
+			for (int i = 0; i < length; i++) {
+				assertTrue(array[i] >= 0 && array[i] < length, "value " + array[i] + " is out of range for range of length " + length);
+			}
+		}
+	}
+
 }

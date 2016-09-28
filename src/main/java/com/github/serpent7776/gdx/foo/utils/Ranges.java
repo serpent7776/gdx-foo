@@ -8,20 +8,14 @@ public class Ranges {
 		if (length <= 0) {
 			throw new IllegalArgumentException("length must be positive");
 		}
-		int[] array = new int[length];
-		// create ordered array
+		final int[] array = new int[length];
+		// use "inside-out" Fisher–Yates shuffle
 		for (int i = 0; i < length; i++) {
-			array[i] = i;
-		}
-		// randomize elements
-		for (int i = array.length - 1; i > 0; i--) {
-			final int index = MathUtils.random.nextInt(i + 1);
-			// Simple swap
-			if (i != index) {
-				final int temp = array[index];
-				array[index] = array[i];
-				array[i] = temp;
+			final int j = MathUtils.random.nextInt(i + 1);
+			if (i != j) {
+				array[i] = array[j];
 			}
+			array[j] = i;
 		}
 		return array;
 	}

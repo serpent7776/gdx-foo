@@ -8,7 +8,7 @@ buildscript {
 group = 'com.github.serpent7776.gdx'
 
 allprojects {
-    version = '0.2'
+    version = '0.3'
     ext {
         gdxVersion = '1.9.4'
         testNGVersion = '6.9.10'
